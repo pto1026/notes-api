@@ -9,7 +9,8 @@
     "watch": "nodemon src/server.js",
     "cluster": "pm2 start src/server.js -i max",
     "deploy": "npm run build --prefix client && npm start",
-    "start": "npm install --prefix client && npm run build --prefix client && npm run cluster"
+    "start": "npm run build --prefix client && npm run cluster",
+    "install": "npm install && npm install --prefix client"
   },
   "keywords": [],
   "author": "",
