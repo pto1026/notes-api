@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js & npm start --prefix client",
-    "watch": "nodemon src/server.js"
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js",
+    "cluster": "pm2 start src/server.js -i max",
+    "deploy": "npm run build --prefix client && npm start",
+    "deploy-cluster": "npm run build --prefix client && npm run cluster"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +17,9 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "mongoose": "^6.3.3"
+    "mongoose": "^6.3.3",
+    "morgan": "^1.10.0",
+    "pm2": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

@@ -14,7 +14,7 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
-  });
+  }, [notes, setNotes]);
   function handleFormSubmit(e) {
     e.preventDefault();
 
