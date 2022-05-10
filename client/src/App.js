@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Notes from "./components/Notes/Notes";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -8,12 +9,12 @@ function App() {
     axios
       .get("http://localhost:8000/notes")
       .then((res) => {
-        setNotes(res.data);
+        setNotes(res.data.sort((a, b) => b.id - a.id));
       })
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  });
   function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -32,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="display-1 m-5">Notes App</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="ms-5">
         <input
           type="text"
           value={newNote}
@@ -45,14 +46,8 @@ function App() {
           Create new note
         </button>
       </form>
-      {/* <Notes className="ms-5"/> */}
-      <ul className="notes">
-        {notes.map((note) => (
-          <li key={note.id} className="note">
-            {note.text}
-          </li>
-        ))}
-      </ul>
+      <Notes notes={notes} className="ms-5"/>
+      
     </div>
   );
 }

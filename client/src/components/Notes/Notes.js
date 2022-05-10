@@ -1,11 +1,14 @@
-import "./Notes.css"
+import Note from "./Note";
+import "./Notes.css";
 
 function Notes(props) {
-    return (
-        <div className={`notes ${props.className}`}>
-            <h2 className="notes__header">Notes:</h2>
-        </div>
-    )
+  return (
+    <ul className={`notes ${props.className}`}>
+      {props.notes.map((note) => (
+        <Note note={note} key={note.id}/>
+      ))}
+    </ul>
+  );
 }
 
 export default Notes;
