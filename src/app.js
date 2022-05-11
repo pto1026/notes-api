@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
   })
 );
 
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/notes", notesRouter);
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 })
 
