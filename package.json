@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/server.js",
     "watch": "nodemon src/server.js",
-    "cluster": "pm2 start src/server.js -i max",
+    "cluster": "pm2-runtime start ecosystem.config.js --env production -i max",
     "deploy": "npm run build --prefix client && npm start",
     "start": "npm run cluster"
   },
