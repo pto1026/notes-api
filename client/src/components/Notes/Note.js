@@ -15,7 +15,7 @@ function Note(props) {
       text: newNote,
     };
     axios
-      .put(`http://localhost:8000/notes/${note.id}`, note)
+      .put(`http://localhost/notes/${note.id}`, note)
       .then((res) => {
         console.log(res.data);
       })
@@ -29,7 +29,7 @@ function Note(props) {
   }
   function handleDeleteButton() {
     axios
-      .delete(`http://localhost:8000/notes/${props.note.id}`)
+      .delete(`http://localhost/notes/${props.note.id}`)
       .then((res) => {
         console.log(res.data);
       })

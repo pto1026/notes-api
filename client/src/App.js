@@ -7,24 +7,24 @@ function App() {
   const [newNote, setNewNote] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:8000/notes")
+      .get("http://localhost/notes")
       .then((res) => {
         setNotes(res.data.sort((a, b) => b.id - a.id));
       })
       .catch((err) => {
         console.error(err);
       });
-  }, [notes, setNotes]);
+  }, [notes]);
   function handleFormSubmit(e) {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/notes", {
+      .post("http://localhost/notes", {
         text: newNote,
       })
       .then((res) => {
         axios
-          .get("http://localhost:8000/notes")
+          .get("http://localhost/notes")
           .then((res) => setNotes(res.data))
           .catch((err) => console.error(err));
       });
