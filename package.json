@@ -8,8 +8,7 @@
     "dev": "node src/server.js",
     "watch": "nodemon src/server.js",
     "cluster": "pm2-runtime start ecosystem.config.js --env production -i max",
-    "deploy": "npm run build --prefix client && npm start",
-    "start": "npm run cluster"
+    "deploy": "npm run build --prefix client && npm start"
   },
   "keywords": [],
   "author": "",
