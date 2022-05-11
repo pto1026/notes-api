@@ -8,8 +8,8 @@
     "dev": "node src/server.js",
     "watch": "nodemon src/server.js",
     "cluster": "pm2 start src/server.js -i max",
-    "deploy": "npm run build --prefix client",
-    "start": "npm install --prefix client && npm run build --prefix client && npm run cluster"
+    "deploy": "npm install --prefix client && npm run build --prefix client",
+    "start": "npm run cluster"
   },
   "keywords": [],
   "author": "",
